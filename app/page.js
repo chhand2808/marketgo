@@ -1,11 +1,40 @@
+"use client"
+
+import React,{useState,useEffect} from "react";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import hero from '@/public/assets/img/hero.jpg'
 import brocoli from "@/public/assets/img/brocoli.jpg"
 import { GiTrophy, GiTrophyCup } from "react-icons/gi";
 import { HiMiniTrophy } from "react-icons/hi2";
+import tree from '@/public/assets/img/tree.jpg'
+import Item_card from "@/components/item_card";
+import {DataSnapshot, get, ref} from 'firebase/database';
+import {database} from '@/lib/firebase';
+
 
 export default function Home() {
+
+  const [items,setItems] = useState([]);
+    useEffect(() => {
+      const usersRef = ref(database,'items');
+      get(usersRef).then((DataSnapshot) => {
+        if(DataSnapshot.exists()) {
+          const userArray = Object.entries(DataSnapshot.val()).map(([id, data]) => ({
+            id,
+            ...data,
+          }));
+          setItems(userArray);
+        }
+        else{
+          console.log('No data available')
+        }
+  
+      }).catch((error) => {
+        console.error(error);
+      });
+    }, []);
+
   return (
     <>
       <div className="sticky top-0 z-10 ">
@@ -94,6 +123,22 @@ export default function Home() {
             </div>
             </div>
           </div>
+      </div>
+      <div className="flex flex-col">
+        <Image
+        src={tree}
+        className="w-full h-full"/>
+
+        <div className="flex flex-col absolute w-[70%] mt-[20vh] left-[45vh] text-center">
+          <h1 className="text-[60px] font-extrabold text-yellow-500 mb-10 border-text-2">Seasonal Picks</h1>
+          <div className="flex flex-row  gap-10">
+          {items.sort((a,b) => b.CP - a.CP).slice(0,3).map((item,index)=>(
+            <>
+              <Item_card itemName={item.id} itemPic={item.img} itemPrice={item.CP} itemReview={item.review}/>
+            </>
+          ))}
+          </div>
+        </div>
       </div>
     </>
   );
