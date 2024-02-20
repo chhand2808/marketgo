@@ -1,11 +1,33 @@
 "use client"
 
 import Image from 'next/image';
+import {DataSnapshot, get, ref} from 'firebase/database';
 import Item_card from '@/components/item_card';
 import React , { useState,useEffect } from 'react'
 import Navbar from '@/components/Navbar';
+import {database} from '@/lib/firebase';
 
 export default function page() {
+
+    const [items,setItems] = useState([]);
+    useEffect(() => {
+      const usersRef = ref(database,'items');
+      get(usersRef).then((DataSnapshot) => {
+        if(DataSnapshot.exists()) {
+          const userArray = Object.entries(DataSnapshot.val()).map(([id, data]) => ({
+            id,
+            ...data,
+          }));
+          setItems(userArray);
+        }
+        else{
+          console.log('No data available')
+        }
+  
+      }).catch((error) => {
+        console.error(error);
+      });
+    }, []);
    
   const Items = [
     {
@@ -69,9 +91,8 @@ export default function page() {
             <h1 className='pl-5 text-4xl font-extrabold text-orange-900'>Popular Products</h1>
             <div className='flex flex-row p-5 w-full gap-5 overflow-x-auto'>
                         {/* Map through the Items array and render each Item_card */}
-                        {Items.map((item, index) => (
-                            <Item_card key={index} itemPic={item.picUrl} itemName={item.name} itemPrice={item.price} itemContent={item.content} />
-                        ))}
+                        {items.map((item, index) => (
+                            <Item_card key={index} itemName={item.id} itemPrice={item.CP} itemPic={item.img}/>))}
             </div>
         </div>
         <div className='p-5 bg-yellow-300'>
