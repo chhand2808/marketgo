@@ -46,14 +46,14 @@ export default function Home() {
           className="w-fit"
         />
         <div className="text-[60px] font-extrabold text-white absolute top-[40vh] left-[20vh] border-text-2">
-          <h1>Welcome to MarketGo</h1>
+          <h1>Welcome to <span className="text-yellow-500">MarketGo</span></h1>
           <h3>Your Ready to Go Market Platform</h3>
         </div>
       </div>
       <div className="flex flex-col bg-slate-200 rounded-lg gap-5 m-10 mt-5 p-10 text-center">
           <h1 className="text-5xl font-extrabold text-slate-900 mb-5">Deal of the Day</h1>
           <div className="flex flex-row gap-5">
-          {items.sort((a,b) => a.Seasonid - b.Seasonid).slice(0,3).map((item,index)=>(
+          {items.sort((a,b) => a.Seasonid - b.Seasonid).slice(0,3).map((item)=>(
             <>
               <Item_card itemName={item.id} itemPic={item.img} itemSeason={item.Season} itemPrice={item.CP} itemReview={item.review}/>
             </>

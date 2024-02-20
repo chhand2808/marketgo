@@ -26,6 +26,7 @@ export default function Navbar() {
                     <NavLink href="/Cart" icon={<IoCartOutline />} text="Cart" currentPage={CurrentPage} />
                     <NavLink href="/Orders" icon={<FiPackage />} text="Your Orders" currentPage={CurrentPage} />
                     <NavLink href="/Aisle" icon={<FaStore />} text="Aisle alignment" currentPage={CurrentPage} />
+                    <NavLink href="/Visualization" icon={<FaStore />} text="Visualization" currentPage={CurrentPage} />
                 </div>
                 <div className='md:hidden relative ml-[30%]'>
                     <IoClose onClick={toggleMobileMenu} className='w-full text-[#F2F4F3] align-baseline items-end justify-self-end mb-4  scale-[2] hover:text-blue-500 cursor-pointer'/>
@@ -40,6 +41,8 @@ export default function Navbar() {
                             <NavLink href="/Orders" icon={<FiPackage />} text="Your Orders" currentPage={CurrentPage} />
                             <hr />
                             <NavLink href="/Aisle" icon={<FaStore />} text="Aisle alignment" currentPage={CurrentPage} />
+                            <hr />
+                            <NavLink href="/Visualization" icon={<FaStore />} text="Visualization" currentPage={CurrentPage} />
                         </div>
                     )}
                 </div>
