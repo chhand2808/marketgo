@@ -33,7 +33,7 @@ export default function page() {
             <a href="/Aisle/3">
             <Image
             src={shelfU}
-            className='w-full h-full rounded-lg'
+            className='w-full h-full rounded-lg rotate-180'
             />
             </a>
         </div>
