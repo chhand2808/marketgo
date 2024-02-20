@@ -21,17 +21,17 @@ export default function Home() {
           <h3>Your Ready to Go Market Platform</h3>
         </div>
       </div>
-      <div className="flex flex-col t-deal text-[60px] justify-self-center align-middle items-center font-extrabold text-white border-text-2">
+      <div className="flex flex-col m-10 t-deal text-[60px] justify-self-center align-middle items-center font-extrabold text-white border-text-2">
           <h3>Deal of the day</h3>
-          <div className='grid md:grid-cols-3 grid-cols-1 gap-4 md:gap-4 justify-center items-center max-w-5xl'>
-            <div className="bg-[#A9927D]  px-4 py-10 rounded-lg shadow-md hover:bg-[#e7c9ae] md:order-2 hover:scale-[1.05]">
-            <Image className='w-fit' src={brocoli} />
+          <div className='grid md:grid-cols-3 mt-10 grid-cols-1 gap-4 md:gap-10 justify-center items-center max-w-5xl'>
+            <div className="flex flex-col max-w-[45vh] justify-center items-center align-middle bg-[#A9927D]  px-4 py-4 rounded-lg shadow-md hover:bg-[#e7c9ae] md:order-2 hover:scale-[1.05] transition duration-500">
+            <Image className='w-fit rounded-lg' src={brocoli} />
               <h2 className="text-2xl text-white font-bold">I Place</h2>              
               <p className="text-[#F2F4F3] text-3xl my-5">SOME SMOL DESCRIPTION</p>
               <div className="grid grid-cols-2 gap-1">
               <div className="mx-auto">
                 <button
-              className="middle none center rounded-lg bg-[#5E503F] py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg hover:shadow-[#F2F4F3]/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              className="middle none center rounded-lg bg-[#5E503F] py-3 px-3 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg hover:shadow-[#F2F4F3]/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               data-ripple-light="true"
             
              >Add to Cart
@@ -47,14 +47,14 @@ export default function Home() {
               </div>
             </div>
             </div>
-            <div className="bg-[#A9927D] px-4 py-10 rounded-lg shadow-md hover:bg-[#e7c9ae] hover:scale-[1.05] md:order-1">
-              <Image className='w-fit' src={brocoli} />
+            <div className="flex flex-col max-w-[45vh] justify-center items-center align-middle bg-[#A9927D] px-4 py-4 rounded-lg shadow-md hover:bg-[#e7c9ae] hover:scale-[1.05] transition duration-500 md:order-1">
+              <Image className='w-fit rounded-lg' src={brocoli} />
               <h2 className="text-2xl text-white font-bold">II Place</h2>
               <p className="text-[#F2F4F3] text-3xl my-5">SOME SMOL DESCRIPTION</p>
               <div className="grid grid-cols-2 gap-1">
               <div className="mx-auto">
                 <button
-              className="middle none center rounded-lg bg-[#5E503F] py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg hover:shadow-[#F2F4F3]/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              className="middle none center rounded-lg bg-[#5E503F] py-3 px-3 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg hover:shadow-[#F2F4F3]/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               data-ripple-light="true"
             
              >Add to Cart
@@ -70,14 +70,14 @@ export default function Home() {
               </div>
             </div>
             </div>
-            <div className="bg-[#A9927D] px-4 py-10 rounded-lg shadow-md hover:bg-[#e7c9ae] md:order-3 hover:scale-[1.05]">
-              <Image className='w-fit' src={brocoli} />
+            <div className="flex flex-col max-w-[45vh] bg-[#A9927D] px-4 py-4 rounded-lg justify-center items-center align-middle shadow-md hover:bg-[#e7c9ae] md:order-3 hover:scale-[1.05] transition duration-500">
+              <Image className='w-fit rounded-lg' src={brocoli} />
               <h2 className="text-2xl mx-auto text-white font-bold">III Place</h2>
               <p className="text-[#F2F4F3] text-3xl my-5">SOME SMOL DESCRIPTION</p>
               <div className="grid grid-cols-2 gap-1">
               <div className="mx-auto">
                 <button
-              className="middle none center rounded-lg bg-[#5E503F] py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg hover:shadow-[#F2F4F3]/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+              className="middle none center rounded-lg bg-[#5E503F] py-3 px-3 font-sans text-xs font-bold uppercase text-white shadow-md  transition-all hover:shadow-lg hover:shadow-[#F2F4F3]/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               data-ripple-light="true"
             
              >Add to Cart
