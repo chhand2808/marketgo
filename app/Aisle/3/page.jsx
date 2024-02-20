@@ -62,7 +62,7 @@ export default function Page() {
     const renderInnerFlexRow3 = () => {
         const items = Array.from({ length: 2 }, (_, index) => index + 1); // Create an array with 8 elements
         return items.map((item) => (
-            <div key={item} className='flex flex-row gap-10'>
+            <div key={item} className='flex flex-col-reverse gap-10'>
                 <button onClick={() => allotItem(item==1?item+7:item+36)} className='w-20 h-20 bg-red-600'>A{item==1?item+7:item+36}</button>
                 <button onClick={() => allotItem(item==1?item+17:item+26)} className='w-20 h-20 bg-blue-600'>B{item==1?item+17:item+26}</button>
             </div>
@@ -89,7 +89,7 @@ export default function Page() {
                         {renderInnerFlexRow2()} {/* Render the inner flex row 8 times */}
                     </div>
                 </div>
-                <div className='flex flex-col gap-5 items-center align-middle justify-center'>
+                <div className='flex flex-row gap-5 items-center align-middle justify-center'>
                     {renderInnerFlexRow3()}
                 </div>
             </div>
