@@ -6,7 +6,9 @@ import Navbar from '@/components/Navbar';
 export default function page() {
   return (
     <>
-    <Navbar/>
+    <div className="sticky top-0">
+        <Navbar/>
+      </div>
     <div className='flex flex-col gap-5'>
         <div className='p-5 bg-slate-200'>
             <h1 className='pl-5 text-4xl font-extrabold text-orange-500'>Popular Products</h1>
