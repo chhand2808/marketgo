@@ -83,23 +83,39 @@ export default function page() {
 
   return (
     <>
-    <div className="sticky top-0">
+    <div className="sticky top-0 z-10">
         <Navbar/>
       </div>
     <div className='flex flex-col gap-5'>
         <div className='p-5 bg-red-400'>
-            <h1 className='pl-5 text-4xl font-extrabold text-orange-900'>Popular Products</h1>
+            <div className='flex flex-row justify-between'>
+                <h1 className='pl-5 text-4xl font-extrabold text-orange-900 border-text-3'>Popular Products</h1>
+                <div className='flex flex-row mr-5 gap-3'>
+                <h2 className='text-2xl font-extrabold text-orange-900 border-text-3'>Sort By</h2>
+                <select id="cars" name="cars" className='ml-2 rounded-lg'>
+                    <option value="none">None</option>
+                    <option value="popularity">Popularity</option>
+                    <option value="season">Seasons</option>
+                    <option value="profitable">Profitable</option>
+                </select>
+                </div>
+            </div>
             <div className='flex flex-row p-5 w-full gap-5 overflow-x-auto'>
                         {/* Map through the Items array and render each Item_card */}
                         {items.map((item, index) => (
-                            <Item_card key={index} itemName={item.id} itemPrice={item.CP} itemPic={item.img}/>))}
+                            <Item_card key={index} itemName={item.id} itemPrice={item.CP} itemReview={item.review} itemPic={item.img} itemContent={item.content}/>))}
+                            
+                            {/* unmapped items */}
+                            <a href='/Add_item'>
+                                <Item_card itemName={'Add New'} itemPic={'/assets/img/add_icon.png'}/>
+                            </a>
             </div>
         </div>
         <div className='p-5 bg-yellow-300'>
             <h1 className='pl-5 text-4xl text-red-600 font-extrabold'>Seasonal Products</h1>
             <div className='flex flex-row p-5 w-full gap-5 overflow-x-auto'>
-            {Items.map((item, index) => (
-                            <Item_card key={index} itemPic={item.picUrl} itemName={item.name} itemPrice={item.price} itemContent={item.content} />
+            {items.map((item, index) => (
+                            <Item_card key={index} itemPic={item.img} itemName={item.id} itemPrice={item.CP} itemContent={item.content} />
                         ))}
             </div>
         </div>
