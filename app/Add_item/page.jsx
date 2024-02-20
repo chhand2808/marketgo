@@ -15,7 +15,7 @@ export default function Page() {
   const [review, setReview] = useState('');
   const [Monthly, setMonthly] = useState('');
   const [CP, setCP] = useState('');
-  const [SP,setSP] = useState('');
+  const [SP, setSP] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,9 +34,9 @@ export default function Page() {
       review
     };
 
-    const itemsRef = ref(database, `items/${itemName}`); 
+    const itemsRef = ref(database, `items/${itemName}`);
 
-    set(itemsRef, newItem) 
+    set(itemsRef, newItem)
       .then(() => {
         console.log('Item added successfully');
         setItemName('');
@@ -48,6 +48,9 @@ export default function Page() {
         setImageURL('');
         setQuantity('');
         setReview('');
+        setMonthly('');
+        setCP('');
+        setSP('');
       })
       .catch((error) => {
         console.error('Error adding item:', error);
@@ -60,19 +63,65 @@ export default function Page() {
         <h1 className="mb-1 font-bold text-3xl flex gap-1 items-baseline font-mono">Add Item</h1>
         <div className="grid max-w-3xl gap-2 py-10 px-8 sm:grid-cols-2 bg-white rounded-md border-t-4 border-purple-400">
           <form onSubmit={handleSubmit}>
-            {/* Your form fields */}
-            <input type="text" value={itemName} onChange={(e) => setItemName(e.target.value)} placeholder="Item Name" />
-            <input type="text" value={Season} onChange={(e) => setSeason(e.target.value)} placeholder="Season" />
-            <input type="text" value={SeasonId} onChange={(e) => setSeasonId(e.target.value)} placeholder="Season ID" />
-            <input type="text" value={aisle} onChange={(e) => setAisle(e.target.value)} placeholder="Aisle" />
-            <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Category" />
-            <input type="text" value={content} onChange={(e) => setContent(e.target.value)} placeholder="Content" />
-            <input type="text" value={img} onChange={(e) => setImageURL(e.target.value)} placeholder="Image URL" />
-            <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} placeholder="Quantity" />
-            <input type="number" value={SP} onChange={(e) => setSP(e.target.value)} placeholder="SP" />
-            <input type="number" value={CP} onChange={(e) => setCP(e.target.value)} placeholder="CP" />
-            <input type="number" value={Monthly} onChange={(e) => setMonthly(e.target.value)} placeholder="Monthly" />
-            <input type="number" value={review} onChange={(e) => setReview(e.target.value)} placeholder="Review" />
+            <div className="bg-white flex min-h-[60px] flex-col-reverse justify-center rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:shadow-inner">
+              <input type="text" value={itemName} onChange={(e) => setItemName(e.target.value)} className="peer block w-full border-0 p-0 text-base text-gray-900 placeholder-gray-400 focus:ring-0" placeholder="Item Name" />
+              <label htmlFor="itemName" className="block transform text-xs font-bold uppercase text-gray-400 transition-opacity, duration-200 peer-placeholder-shown:h-0 peer-placeholder-shown:-translate-y-full peer-placeholder-shown:opacity-0">Item Name</label>
+            </div>
+            <div className="bg-white flex min-h-[60px] flex-col-reverse justify-center rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:shadow-inner">
+              <input type="text" value={Season} onChange={(e) => setSeason(e.target.value)} className="peer block w-full border-0 p-0 text-base text-gray-900 placeholder-gray-400 focus:ring-0" placeholder="Season" />
+              <label htmlFor="Season" className="block transform text-xs font-bold uppercase text-gray-400 transition-opacity, duration-200 peer-placeholder-shown:h-0 peer-placeholder-shown:-translate-y-full peer-placeholder-shown:opacity-0">Season</label>
+            </div>
+            {/* SeasonId */}
+            <div className="bg-white flex min-h-[60px] flex-col-reverse justify-center rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:shadow-inner">
+              <input type="number" value={SeasonId} onChange={(e) => setSeasonId(e.target.value)} className="peer block w-full border-0 p-0 text-base text-gray-900 placeholder-gray-400 focus:ring-0" placeholder="Season ID" />
+              <label htmlFor="SeasonId" className="block transform text-xs font-bold uppercase text-gray-400 transition-opacity, duration-200 peer-placeholder-shown:h-0 peer-placeholder-shown:-translate-y-full peer-placeholder-shown:opacity-0">Season ID</label>
+            </div>
+            {/* Aisle */}
+            <div className="bg-white flex min-h-[60px] flex-col-reverse justify-center rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:shadow-inner">
+              <input type="number" value={aisle} onChange={(e) => setAisle(e.target.value)} className="peer block w-full border-0 p-0 text-base text-gray-900 placeholder-gray-400 focus:ring-0" placeholder="Aisle" />
+              <label htmlFor="aisle" className="block transform text-xs font-bold uppercase text-gray-400 transition-opacity, duration-200 peer-placeholder-shown:h-0 peer-placeholder-shown:-translate-y-full peer-placeholder-shown:opacity-0">Aisle</label>
+            </div>
+            {/* Category */}
+            <div className="bg-white flex min-h-[60px] flex-col-reverse justify-center rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:shadow-inner">
+              <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} className="peer block w-full border-0 p-0 text-base text-gray-900 placeholder-gray-400 focus:ring-0" placeholder="Category" />
+              <label htmlFor="category" className="block transform text-xs font-bold uppercase text-gray-400 transition-opacity, duration-200 peer-placeholder-shown:h-0 peer-placeholder-shown:-translate-y-full peer-placeholder-shown:opacity-0">Category</label>
+            </div>
+            {/* Content */}
+            <div className="bg-white flex min-h-[60px] flex-col-reverse justify-center rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:shadow-inner">
+              <input type="text" value={content} onChange={(e) => setContent(e.target.value)} className="peer block w-full border-0 p-0 text-base text-gray-900 placeholder-gray-400 focus:ring-0" placeholder="Content" />
+              <label htmlFor="content" className="block transform text-xs font-bold uppercase text-gray-400 transition-opacity, duration-200 peer-placeholder-shown:h-0 peer-placeholder-shown:-translate-y-full peer-placeholder-shown:opacity-0">Content</label>
+            </div>
+            {/* Image URL */}
+            <div className="bg-white flex min-h-[60px] flex-col-reverse justify-center rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:shadow-inner">
+              <input type="text" value={img} onChange={(e) => setImageURL(e.target.value)} className="peer block w-full border-0 p-0 text-base text-gray-900 placeholder-gray-400 focus:ring-0" placeholder="Image URL" />
+              <label htmlFor="img" className="block transform text-xs font-bold uppercase text-gray-400 transition-opacity, duration-200 peer-placeholder-shown:h-0 peer-placeholder-shown:-translate-y-full peer-placeholder-shown:opacity-0">Image URL</label>
+            </div>
+            {/* Quantity */}
+            <div className="bg-white flex min-h-[60px] flex-col-reverse justify-center rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:shadow-inner">
+              <input type="number" value={quantity} onChange={(e) => setQuantity(e.target.value)} className="peer block w-full border-0 p-0 text-base text-gray-900 placeholder-gray-400 focus:ring-0" placeholder="Quantity" />
+              <label htmlFor="quantity" className="block transform text-xs font-bold uppercase text-gray-400 transition-opacity, duration-200 peer-placeholder-shown:h-0 peer-placeholder-shown:-translate-y-full peer-placeholder-shown:opacity-0">Quantity</label>
+            </div>
+            {/* Review */}
+            <div className="bg-white flex min-h-[60px] flex-col-reverse justify-center rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:shadow-inner">
+              <input type="number" value={review} onChange={(e) => setReview(e.target.value)} className="peer block w-full border-0 p-0 text-base text-gray-900 placeholder-gray-400 focus:ring-0" placeholder="Review" />
+              <label htmlFor="review" className="block transform text-xs font-bold uppercase text-gray-400 transition-opacity, duration-200 peer-placeholder-shown:h-0 peer-placeholder-shown:-translate-y-full peer-placeholder-shown:opacity-0">Review</label>
+            </div>
+            {/* Monthly */}
+            <div className="bg-white flex min-h-[60px] flex-col-reverse justify-center rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:shadow-inner">
+              <input type="number" value={Monthly} onChange={(e) => setMonthly(e.target.value)} className="peer block w-full border-0 p-0 text-base text-gray-900 placeholder-gray-400 focus:ring-0" placeholder="Monthly" />
+              <label htmlFor="Monthly" className="block transform text-xs font-bold uppercase text-gray-400 transition-opacity, duration-200 peer-placeholder-shown:h-0 peer-placeholder-shown:-translate-y-full peer-placeholder-shown:opacity-0">Monthly</label>
+            </div>
+            {/* Cost Price */}
+            <div className="bg-white flex min-h-[60px] flex-col-reverse justify-center rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:shadow-inner">
+              <input type="number" value={CP} onChange={(e) => setCP(e.target.value)} className="peer block w-full border-0 p-0 text-base text-gray-900 placeholder-gray-400 focus:ring-0" placeholder="Cost Price" />
+              <label htmlFor="CP" className="block transform text-xs font-bold uppercase text-gray-400 transition-opacity, duration-200 peer-placeholder-shown:h-0 peer-placeholder-shown:-translate-y-full peer-placeholder-shown:opacity-0">Cost Price</label>
+            </div>
+            {/* Selling Price */}
+            <div className="bg-white flex min-h-[60px] flex-col-reverse justify-center rounded-md border border-gray-300 px-3 py-2 shadow-sm focus-within:shadow-inner">
+              <input type="number" value={SP} onChange={(e) => setSP(e.target.value)} className="peer block w-full border-0 p-0 text-base text-gray-900 placeholder-gray-400 focus:ring-0" placeholder="Selling Price" />
+              <label htmlFor="SP" className="block transform text-xs font-bold uppercase text-gray-400 transition-opacity, duration-200 peer-placeholder-shown:h-0 peer-placeholder-shown:-translate-y-full peer-placeholder-shown:opacity-0">Selling Price</label>
+            </div>
+            {/* Submit Button */}
             <button type="submit" className="mt-4 bg-purple-500 text-white py-2 px-6 rounded-md hover:bg-purple-600">Add Item</button>
           </form>
         </div>
