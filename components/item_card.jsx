@@ -2,23 +2,23 @@ import React from 'react';
 import Image from 'next/image';
 import { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 
-export default function Item_card({ itemPic, itemName, itemPrice, itemContent }) {
+export default function Item_card({ itemPic, itemName, itemPrice }) {
   return (
-    <Card className="min-w-[45vh] md:min-w-[23%] w-full h-full">
+    <Card className="min-w-[45vh] md:min-w-[23%] w-full h-full hover:shadow-lg hover:shadow-black hover:scale-[1.02] transition duration-300">
       <CardHeader>
         <div className='flex align-middle justify-center items-center'>
-          <Image
+          <img
             src={itemPic}
-            width={130}
+            width={100}
             height={100}
-            className='rounded-md w-fit'
+            className='rounded-md w-fit max-w-[30vh] min-h-[40vh] max-h-[50vh]'
           />
         </div>
         <CardTitle>{itemName}</CardTitle>
         <CardDescription>Price : {itemPrice}</CardDescription>
       </CardHeader>
       <CardContent>
-        {itemContent}
+        
       </CardContent>
       <CardFooter className='gap-4'>
         <button className= 'bg-green-300 rounded-md px-2 py-1 hover:text-white hover:bg-green-800 transition duration-500'>Add to Cart</button>
