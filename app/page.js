@@ -132,7 +132,7 @@ export default function Home() {
         <div className="flex flex-col absolute w-[70%] mt-[20vh] left-[45vh] text-center">
           <h1 className="text-[60px] font-extrabold text-yellow-500 mb-10 border-text-2">Seasonal Picks</h1>
           <div className="flex flex-row  gap-10">
-          {items.slice(0,3).map((item,index)=>(
+          {items.sort((a,b) => b.CP - a.CP).slice(0,3).map((item,index)=>(
             <>
               <Item_card itemName={item.id} itemPic={item.img} itemPrice={item.CP} itemReview={item.review}/>
             </>
