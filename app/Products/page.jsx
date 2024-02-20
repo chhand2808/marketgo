@@ -121,9 +121,16 @@ export default function page() {
         <div className='p-5 bg-yellow-300'>
             <h1 className='pl-5 text-4xl text-red-600 font-extrabold'>Seasonal Products</h1>
             <div className='flex flex-row p-5 w-full gap-5 overflow-x-auto'>
-            {items.map((item, index) => (
-                            <Item_card key={index} itemPic={item.img} itemName={item.id} itemPrice={item.CP} itemContent={item.content} />
-                        ))}
+                           {items.sort((a,b) => a.Seasonid - b.Seasonid).map((item,index) => (
+                            <Item_card 
+                            key={index} 
+                            itemName={item.id} 
+                            itemPrice={item.CP} 
+                            itemReview={item.review} 
+                            itemPic={item.img} 
+                            itemContent={item.content}
+                          />
+                          ))}  
             </div>
         </div>
         <div className='p-5 bg-lime-400'>
