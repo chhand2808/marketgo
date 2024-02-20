@@ -102,9 +102,16 @@ export default function page() {
             </div>
             <div className='flex flex-row p-5 w-full gap-5 overflow-x-auto'>
                         {/* Map through the Items array and render each Item_card */}
-                        {items.map((item, index) => (
-                            <Item_card key={index} itemName={item.id} itemPrice={item.CP} itemReview={item.review} itemPic={item.img} itemContent={item.content}/>))}
-                            
+                        {items.sort((a,b) => b.review - a.review).map((item,index) => (
+                          <Item_card 
+                          key={index} 
+                          itemName={item.id} 
+                          itemPrice={item.CP} 
+                          itemReview={item.review} 
+                          itemPic={item.img} 
+                          itemContent={item.content}
+                        />
+                        ))} 
                             {/* unmapped items */}
                             <a href='/Add_item'>
                                 <Item_card itemName={'Add New'} itemPic={'/assets/img/add_icon.png'}/>
