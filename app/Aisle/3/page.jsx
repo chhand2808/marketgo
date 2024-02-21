@@ -6,6 +6,28 @@ import { set, ref, get, getDatabase, DataSnapshot, child, update } from 'firebas
 import { database } from '@/lib/firebase';
 
 export default function Page() {
+
+    const [aisleCost, setAisleCost] = useState([]);
+
+    useEffect(() => {
+        const aisleCostRef = ref(database, 'aislecost');
+
+        get(aisleCostRef)
+            .then((snapshot) => {
+                if (snapshot.exists()) {
+                    const aisleCostData = snapshot.val();
+                    setAisleCost(aisleCostData);
+                    console.log('Aisle Cost Data:', aisleCostData);
+                } else {
+                    console.log('No aisle cost data available');
+                }
+            })
+            .catch((error) => {
+                console.error('Error fetching aisle cost data:', error);
+            });
+    }, []);
+
+
     const [itemName, setItemName] = useState('');
 
     const handleInputChange = (event) => {
@@ -80,6 +102,9 @@ export default function Page() {
                     <input name='itemName' className='border-2 border-solid border-slate-500 rounded-md' type="text" value={itemName} onChange={handleInputChange} placeholder="Enter item name" />
                 </form>
             </div>
+            <div className='text-center text-3xl font-bold my-3'>
+                <h1>Aisle Cost is : {aisleCost}</h1>
+            </div>
             <div className='flex flex-col'>
                 <div className='flex flex-row justify-evenly'>
                     <div className='flex flex-col gap-5 p-10 pb-0'>
@@ -89,7 +114,7 @@ export default function Page() {
                         {renderInnerFlexRow2()} {/* Render the inner flex row 8 times */}
                     </div>
                 </div>
-                <div className='flex flex-row gap-5 items-center align-middle justify-center'>
+                <div className='flex flex-row gap-5 items-center align-middle justify-center mb-10'>
                     {renderInnerFlexRow3()}
                 </div>
             </div>

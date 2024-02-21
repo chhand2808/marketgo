@@ -30,8 +30,8 @@ export default function Item_card({ itemPic, itemName, itemPrice, itemContent, i
         <div className='flex flex-row gap-2 align-middle items-center'>{itemReview}<FaRegStar/></div>
       </CardContent>
       <CardFooter className='gap-4'>
-        <button className= 'bg-green-300 rounded-md px-2 py-1 hover:text-white hover:bg-green-800 transition duration-500'>Add to Cart</button>
-        <button className= 'bg-blue-300 rounded-md px-2 py-1 hover:text-white hover:bg-blue-800 transition duration-500'>Buy Now</button>
+        {/* <button className= 'bg-green-300 rounded-md px-2 py-1 hover:text-white hover:bg-green-800 transition duration-500'>Add to Cart</button>
+        <button className= 'bg-blue-300 rounded-md px-2 py-1 hover:text-white hover:bg-blue-800 transition duration-500'>Buy Now</button> */}
       </CardFooter>
     </Card>
   );

@@ -1,6 +1,6 @@
   export const pieChartOptions = {
-    labels: ["One", "Two", "Three"],
-    colors: ["#FF9B05", "#FFC46B", "#EFF4FB"],
+    labels: ["One", "Two", "Three", "Four"],
+    colors: ["#FF9B05", "#FFC46B", "#EF04FB", "#E20F05"],
     chart: {
       width: "50px",
     },
@@ -29,7 +29,7 @@
       },
     },
     fill: {
-      colors: ["#FF9B05", "#FFC46B", "#EFF4FB"],
+      colors: ["#FF9B05", "#FFC46B", "#EF04FB, #E20F05"],
     },
     tooltip: {
       enabled: true,
@@ -37,9 +37,9 @@
       style: {
         fontSize: "12px",
         fontFamily: undefined,
-        backgroundColor: "#000000",
+        backgroundColor: "#FFFFFF",
       },
     },
   };
   
-  export const pieChartData = [63, 25, 12];
+  export const pieChartData = [55, 25, 12, 8];

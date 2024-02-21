@@ -7,7 +7,7 @@ import { IoHome, IoCartOutline, IoClose } from 'react-icons/io5';
 import { LiaProductHunt } from 'react-icons/lia';
 import { FiPackage } from 'react-icons/fi';
 import { usePathname } from 'next/navigation';
-import { FaStore } from "react-icons/fa";
+import { FaStore,FaChartBar } from "react-icons/fa";
 
 export default function Navbar() {
     const CurrentPage = usePathname();
@@ -19,14 +19,14 @@ export default function Navbar() {
     return (
         <>
             <div className='flex flex-row sticky w-full h-20 bg-[#5E503F] align-middle items-center justify-left'>
-                <Image src={logo} width={200} height={200} />
+                <a href="/"><Image src={logo} width={200} height={200} /></a>
                 <div className='md:flex hidden md:flex-row space-x-10'>
                     <NavLink href="/" icon={<IoHome />} text="Home" currentPage={CurrentPage} />
                     <NavLink href="/Products" icon={<LiaProductHunt />} text="Products" currentPage={CurrentPage} />
-                    <NavLink href="/Cart" icon={<IoCartOutline />} text="Cart" currentPage={CurrentPage} />
-                    <NavLink href="/Orders" icon={<FiPackage />} text="Your Orders" currentPage={CurrentPage} />
+                    {/* <NavLink href="/Cart" icon={<IoCartOutline />} text="Cart" currentPage={CurrentPage} />
+                    <NavLink href="/Orders" icon={<FiPackage />} text="Your Orders" currentPage={CurrentPage} /> */}
                     <NavLink href="/Aisle" icon={<FaStore />} text="Aisle alignment" currentPage={CurrentPage} />
-                    <NavLink href="/Visualization" icon={<FaStore />} text="Visualization" currentPage={CurrentPage} />
+                    <NavLink href="/Visualization" icon={<FaChartBar />} text="Visualization" currentPage={CurrentPage} />
                 </div>
                 <div className='md:hidden relative ml-[30%]'>
                     <IoClose onClick={toggleMobileMenu} className='w-full text-[#F2F4F3] align-baseline items-end justify-self-end mb-4  scale-[2] hover:text-blue-500 cursor-pointer'/>
@@ -35,10 +35,10 @@ export default function Navbar() {
                             <NavLink href="/" icon={<IoHome />} text="Home" currentPage={CurrentPage} />
                             <hr />
                             <NavLink href="/Products" icon={<LiaProductHunt />} text="Products" currentPage={CurrentPage} />
-                            <hr />
+                            {/* <hr />
                             <NavLink href="/Cart" icon={<IoCartOutline />} text="Cart" currentPage={CurrentPage} />
                             <hr />
-                            <NavLink href="/Orders" icon={<FiPackage />} text="Your Orders" currentPage={CurrentPage} />
+                            <NavLink href="/Orders" icon={<FiPackage />} text="Your Orders" currentPage={CurrentPage} /> */}
                             <hr />
                             <NavLink href="/Aisle" icon={<FaStore />} text="Aisle alignment" currentPage={CurrentPage} />
                             <hr />
